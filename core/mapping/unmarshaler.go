@@ -1034,7 +1034,7 @@ func getValueWithChainedKeys(m valuerWithParent, keys []string) (any, bool) {
 		return nil, false
 	case 1:
 		v, ok := m.Value(keys[0])
-		return v, ok
+		return v, ok && v != nil
 	default:
 		if v, ok := m.Value(keys[0]); ok {
 			if nextm, ok := v.(map[string]any); ok {
